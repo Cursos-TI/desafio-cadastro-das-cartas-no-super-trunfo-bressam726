@@ -1,22 +1,57 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
+
+typedef struct {
+    char codigo[4];
+    char nome[50];
+    double populacao;
+    double area;
+    double pib;
+    int pontos_turisticos;
+} Cidade;
+
+
+void exibirCidade(Cidade c) {
+    printf("\nCodigo: %s\n", c.codigo);
+    printf("Cidade: %s\n", c.nome);
+    printf("Populacao: %.2lf\n", c.populacao);
+    printf("Area: %.2lf km2\n", c.area);
+    printf("PIB: %.2lf bilhoes\n", c.pib);
+    printf("Pontos Turisticos: %d\n", c.pontos_turisticos);
+}
 
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
+    Cidade cidade;
+
     
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+    printf("Digite o codigo da cidade (ex: A01): ");
+    scanf("%3s", cidade.codigo);
+    cidade.codigo[3] = '\0'; 
+
+    while (getchar() != '\n'); 
+
+    printf("Digite o nome da cidade: ");
+    scanf(" %[^
+]", cidade.nome);
+
+    printf("Digite a populacao: ");
+    scanf("%lf", &cidade.populacao);
+    while (getchar() != '\n'); 
+
+    printf("Digite a area (em km2): ");
+    scanf("%lf", &cidade.area);
+    while (getchar() != '\n'); 
+
+    printf("Digite o PIB (em bilhoes): ");
+    scanf("%lf", &cidade.pib);
+    while (getchar() != '\n'); 
+
+    printf("Digite o numero de pontos turisticos: ");
+    scanf("%d", &cidade.pontos_turisticos);
+    while (getchar() != '\n');
+
+   
+    exibirCidade(cidade);
 
     return 0;
 }
